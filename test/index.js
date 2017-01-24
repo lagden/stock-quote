@@ -6,7 +6,6 @@ const stockQuote = require('../')
 describe('lagden-stock-quote', () => {
 	it('vale5', done => {
 		stockQuote('vale5').then(r => {
-			console.log(r)
 			assert.ok(r.success)
 			assert.equal(r.papel, 'BOV:VALE5')
 			done()
