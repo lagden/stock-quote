@@ -3,7 +3,6 @@
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
 [![Coverage Status][coveralls-img]][coveralls]
-[![devDependency Status][devDep-img]][devDep]
 [![XO code style][xo-img]][xo]
 
 [npm-img]:       https://img.shields.io/npm/v/lagden-stock-quote.svg
@@ -12,8 +11,6 @@
 [ci]:            https://travis-ci.org/lagden/stock-quote
 [coveralls-img]: https://coveralls.io/repos/github/lagden/stock-quote/badge.svg?branch=master
 [coveralls]:     https://coveralls.io/github/lagden/stock-quote?branch=master
-[devDep-img]:    https://david-dm.org/lagden/lagden-stock-quote/dev-status.svg
-[devDep]:        https://david-dm.org/lagden/lagden-stock-quote#info=devDependencies
 [xo-img]:        https://img.shields.io/badge/code_style-XO-5ed9c7.svg
 [xo]:            https://github.com/sindresorhus/xo
 
