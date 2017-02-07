@@ -8,7 +8,7 @@ describe('lagden-stock-quote', () => {
 		stockQuote('vale5').then(r => {
 			assert.ok(r.success)
 			assert.equal(r.papel, 'BOV:VALE5')
-			assert.deepEqual(Object.keys(r), ['papel', 'varicao', 'ultimo', 'max', 'min', 'abertura', 'fechamento', 'negocio', 'volume', 'hora', 'success'])
+			assert.deepEqual(Object.keys(r), ['papel', 'variacao', 'ultimo', 'max', 'min', 'abertura', 'fechamento', 'negocio', 'volume', 'hora', 'success'])
 			done()
 		})
 	})
