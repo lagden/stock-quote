@@ -1,6 +1,6 @@
 {
   "name": "lagden-stock-quote",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Cotações da Bolsa de Valores",
   "keywords": [
     "stock",
@@ -15,7 +15,7 @@
   "author": {
     "name": "Thiago Lagden",
     "email": "lagden@gmail.com",
-    "url": "http://lagden.in"
+    "url": "https://github.com/lagden"
   },
   "main": "index.js",
   "files": [
@@ -26,29 +26,37 @@
   ],
   "repository": "lagden/stock-quote",
   "scripts": {
-    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "coverage": "nyc ava",
     "pretest": "xo",
-    "test": "istanbul cover _mocha -- -R spec -t 5000"
+    "test": "ava"
   },
   "dependencies": {
-    "cheerio": "0.22.0",
-    "got": "6.7.1"
+    "cheerio": "1.0.0-rc.3",
+    "form-data": "3.0.0",
+    "got": "11.8.0"
   },
   "devDependencies": {
-    "coveralls": "2.11.15",
-    "istanbul": "0.4.5",
-    "mocha": "3.2.0",
-    "mocha-lcov-reporter": "1.2.0",
-    "xo": "0.17.1"
+    "ava": "3.13.0",
+    "nyc": "15.1.0",
+    "xo": "0.34.2"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=14.0.0"
   },
   "xo": {
     "envs": [
-      "node",
-      "mocha"
+      "node"
     ],
-    "semicolon": false
+    "semicolon": false,
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ],
+      "capitalized-comments": 0,
+      "unicorn/prevent-abbreviations": 0
+    }
   }
 }

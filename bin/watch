@@ -1,0 +1,59 @@
+#!/bin/sh
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+
+# Import functions
+. $DIR/_fn
+
+usage() {
+	cat <<-EOF
+
+  Usage: $0 [-e <development|staging|production>]
+
+  Options:
+    -e   Environment
+    -h   Show usage
+
+EOF
+exit 0
+}
+
+while getopts ":e:" o
+do
+	case ${o} in
+		e) OPT=$OPTARG ;;
+		*) usage ;;
+	esac
+done
+
+# Go to project root
+# cd $DIR
+# cd ..
+
+# # Go to current directory
+cd $(pwd)
+
+CURR_FOLDER=`pwd`
+
+# ENV File
+if test $OPT; then
+	load_env $CURR_FOLDER $OPT
+else
+	ok "Running without any env."
+fi
+
+ok "Watching folders: ${WATCH_FOLDERS}..."
+ok "Running cmd: ${WATCH_CMD}..."
+
+ENTR_FILE=$(which entr)
+ok "$ENTR_FILE"
+if test -f "${ENTR_FILE}"; then
+	# while true; do
+	# 	find ${WATCH_FOLDERS} -type f | entr -rd ${WATCH_CMD}
+	# done
+	find ${WATCH_FOLDERS} -type f | entr -rd ${WATCH_CMD}
+else
+	eval $WATCH_CMD
+fi
+
+exit 0

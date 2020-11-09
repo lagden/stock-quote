@@ -1,23 +1,16 @@
 'use strict'
 
-const assert = require('assert')
-const stockQuote = require('../')
+const test = require('ava')
+const stockQuote = require('..')
 
-describe('lagden-stock-quote', () => {
-	it('vale5', done => {
-		stockQuote('vale5').then(r => {
-			assert.ok(r.success)
-			assert.equal(r.papel, 'BOV:VALE5')
-			assert.deepEqual(Object.keys(r), ['papel', 'variacao', 'ultimo', 'max', 'min', 'abertura', 'fechamento', 'negocio', 'volume', 'hora', 'success'])
-			done()
-		})
-	})
+test('vale3', async t => {
+	const r = await stockQuote('vale3')
+	t.is(r.papel, 'BOV:VALE3')
+})
 
-	it('not found', done => {
-		stockQuote('xxx').catch(err => {
-			assert.strictEqual(err.success, false)
-			assert.equal(err.message, 'Cotação não encontrada')
-			done()
-		})
+test('throws', async t => {
+	await t.throwsAsync(stockQuote('xxx'), {
+		instanceOf: Error,
+		message: 'Cotação não encontrada.'
 	})
 })

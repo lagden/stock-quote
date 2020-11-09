@@ -1,0 +1,67 @@
+#!/bin/bash
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+
+# Import functions
+. $DIR/_fn
+
+usage() {
+	cat <<-EOF
+
+  Usage: $0 [-bd] [-s <service>]
+
+  Options:
+    -b   Build image
+    -d   Run containers in the background
+    -s   Docker compose service name
+    -h   Show usage
+
+EOF
+exit 0
+}
+
+# Go to project root
+cd $DIR
+cd ..
+
+CURR_FOLDER=`pwd`
+BUILD=""
+DAEMON="--abort-on-container-exit"
+OPT="development"
+SERVICE=""
+COMPOSE_TEMPLATE="${CURR_FOLDER}/docker-compose.template.yml"
+COMPOSE_LOCAL="${CURR_FOLDER}/docker-compose.local.yml"
+
+UNAME=$(uname)
+if test $UNAME == 'Linux'; then
+	export ARG_ENTR_INOTIFY_WORKAROUND=0
+else
+	export ARG_ENTR_INOTIFY_WORKAROUND=1
+fi
+export DOCKERFILE="${CURR_FOLDER}/Dockerfile.dev"
+
+while getopts ":bds:" o
+do
+	case ${o} in
+		b) BUILD="--build" ;;
+		d) DAEMON="-d" ;;
+		s) SERVICE=$OPTARG ;;
+		*) usage ;;
+	esac
+done
+
+# ENV File
+load_env $CURR_FOLDER $OPT
+
+docker-compose \
+	-f $COMPOSE_TEMPLATE \
+	-f $COMPOSE_LOCAL \
+	up \
+	--force-recreate \
+	--always-recreate-deps \
+	--remove-orphans \
+	$BUILD \
+	$DAEMON \
+	$SERVICE
+
+exit 0

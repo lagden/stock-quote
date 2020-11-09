@@ -7,8 +7,8 @@
 
 [npm-img]:       https://img.shields.io/npm/v/lagden-stock-quote.svg
 [npm]:           https://www.npmjs.com/package/lagden-stock-quote
-[ci-img]:        https://travis-ci.org/lagden/stock-quote.svg
-[ci]:            https://travis-ci.org/lagden/stock-quote
+[ci-img]:        https://github.com/lagden/stock-quote/workflows/Node.js%20CI/badge.svg
+[ci]:            https://github.com/lagden/stock-quote/actions?query=workflow%3A%22Node.js+CI%22
 [coveralls-img]: https://coveralls.io/repos/github/lagden/stock-quote/badge.svg?branch=master
 [coveralls]:     https://coveralls.io/github/lagden/stock-quote?branch=master
 [xo-img]:        https://img.shields.io/badge/code_style-XO-5ed9c7.svg
@@ -30,13 +30,16 @@ $ npm i -S lagden-stock-quote
 ```javascript
 const consulta = require('lagden-stock-quote')
 
-consulta('vale5')
-  .then(res => {
-    console.log(res) // { papel: 'BOV:VALE5', varicao: ...}
-  })
-  .catch(err => {
-    console.log(err.message) // 'Cotação não encontrada'
-  })
+(async () => {
+  try {
+    const data = await consulta('vale3')
+    console.log(data)
+    //=> {papel: 'BOV:VALE3', varicao: ...}
+  } catch (error) {
+    console.log(error.message)
+    //=> 'Cotação não encontrada'
+  }
+})();
 ```
 
 
