@@ -27,6 +27,9 @@
   "repository": "lagden/stock-quote",
   "scripts": {
     "coverage": "nyc ava",
+    "coverage:report": "nyc report --reporter=lcovonly",
+    "coverage:summary": "nyc report --reporter=text-summary",
+    "postcoverage": "npm run coverage:report && npm run coverage:summary",
     "pretest": "xo",
     "test": "ava"
   },
