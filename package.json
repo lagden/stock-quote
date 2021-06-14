@@ -20,8 +20,6 @@
   "type": "module",
   "main": "src/stock-quote.js",
   "files": [
-    "LICENSE",
-    "README.md",
     "src"
   ],
   "repository": "lagden/stock-quote",
