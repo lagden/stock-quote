@@ -9,6 +9,6 @@ test('quote', async t => {
 test('throws', async t => {
 	await t.throwsAsync(stockQuote('xxx'), {
 		instanceOf: Error,
-		message: 'Cotação não encontrada.'
+		message: 'Ativo não encontrado.'
 	})
 })

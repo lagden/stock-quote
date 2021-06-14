@@ -21,7 +21,7 @@ async function consulta(req) {
 		return data
 	}
 
-	throw new Error('Cotação não encontrada.')
+	throw new Error('Ativo não encontrado.')
 }
 
 export default consulta

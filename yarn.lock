@@ -553,9 +553,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:7.7.2":
-  version: 7.7.2
-  resolution: "c8@npm:7.7.2"
+"c8@npm:7.7.3":
+  version: 7.7.3
+  resolution: "c8@npm:7.7.3"
   dependencies:
     "@bcoe/v8-coverage": ^0.2.3
     "@istanbuljs/schema": ^0.1.2
@@ -566,12 +566,12 @@ __metadata:
     istanbul-reports: ^3.0.2
     rimraf: ^3.0.0
     test-exclude: ^6.0.0
-    v8-to-istanbul: ^7.1.0
+    v8-to-istanbul: ^8.0.0
     yargs: ^16.2.0
     yargs-parser: ^20.2.7
   bin:
     c8: bin/c8.js
-  checksum: e36a68e992c082a2813ce2a4ee6077852e4e09ff98a37cbfbd0eb0782def80f9c6c39a39f583f5ed570782eca777a2872786c4090b1dd3ba516bc9fc0f291307
+  checksum: 54bded9332124a61fc716c34ff09f677382eba8a60ffa5650cbcea3ec775db333eb15fda758ba5068949d747e1b25164940d2e03f2ee74fcd014508a5d205378
   languageName: node
   linkType: hard
 
@@ -2087,7 +2087,7 @@ fsevents@~2.3.1:
   resolution: "lagden-stock-quote@workspace:."
   dependencies:
     ava: 3.15.0
-    c8: 7.7.2
+    c8: 7.7.3
     cheerio: 1.0.0-rc.10
     form-data: 4.0.0
     got: 11.8.2
@@ -3616,14 +3616,14 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"v8-to-istanbul@npm:^7.1.0":
-  version: 7.1.2
-  resolution: "v8-to-istanbul@npm:7.1.2"
+"v8-to-istanbul@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "v8-to-istanbul@npm:8.0.0"
   dependencies:
     "@types/istanbul-lib-coverage": ^2.0.1
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
-  checksum: ff653089c952d618b01c5ff1ab4517144240ba0b6193a9e7116d2f19a6990a76f9bdb3e8f31424f556169c3bf29beadb5ddbaa0aded62da9f5ea63116c27c610
+  checksum: ada29177f2944438eecb6a2fafb2144553c9dc9e623a253083149f4bbb193d862f93bda3cfde93178f3ca799df67da8f0b87222bde8d415a06550476893de0fc
   languageName: node
   linkType: hard
 
