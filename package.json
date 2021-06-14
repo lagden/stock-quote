@@ -1,6 +1,6 @@
 {
   "name": "lagden-stock-quote",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Cotações da Bolsa de Valores",
   "keywords": [
     "stock",
@@ -17,34 +17,30 @@
     "email": "lagden@gmail.com",
     "url": "https://github.com/lagden"
   },
-  "main": "index.js",
+  "type": "module",
+  "main": "src/stock-quote.js",
   "files": [
-    "index.js",
-    "lib",
-    "license",
-    "readme.md"
+    "LICENSE",
+    "README.md",
+    "src"
   ],
   "repository": "lagden/stock-quote",
   "scripts": {
-    "coverage": "nyc ava",
-    "coverage:report": "nyc report --reporter=lcovonly",
-    "coverage:summary": "nyc report --reporter=text-summary",
-    "postcoverage": "npm run coverage:report && npm run coverage:summary",
-    "pretest": "xo",
-    "test": "ava"
+    "eslint": "eslint --config .eslintrc.cjs --ext .js --ignore-path .gitignore .",
+    "_pretest": "npm run eslint",
+    "test": "c8 --reporter=text --reporter=lcov ava"
   },
   "dependencies": {
-    "cheerio": "1.0.0-rc.3",
-    "form-data": "3.0.0",
-    "got": "11.8.0"
+    "cheerio": "1.0.0-rc.10",
+    "form-data": "4.0.0",
+    "got": "11.8.2"
   },
   "devDependencies": {
-    "ava": "3.13.0",
-    "nyc": "15.1.0",
-    "xo": "0.34.2"
+    "ava": "3.15.0",
+    "c8": "7.7.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.16.0"
   },
   "xo": {
     "envs": [

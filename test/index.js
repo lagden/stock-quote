@@ -1,12 +1,9 @@
-'use strict'
-
-const test = require('ava')
-const stockQuote = require('..')
+import test from 'ava'
+import stockQuote from '../src/stock-quote.js'
 
 test('quote', async t => {
 	const r = await stockQuote('mglu3')
-	console.log(r)
-	t.is(r.papel, 'BOV:MGLU3')
+	t.snapshot(r)
 })
 
 test('throws', async t => {

@@ -1,6 +1,4 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import cheerio from 'cheerio'
 
 function parse(html) {
 	const $ = cheerio.load(html)
@@ -16,4 +14,4 @@ function parse(html) {
 	}
 }
 
-module.exports = parse
+export default parse
