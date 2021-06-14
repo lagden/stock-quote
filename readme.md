@@ -18,7 +18,7 @@ Cotações da Bolsa de Valores
 ## Install
 
 ```
-$ npm i -S lagden-stock-quote
+$ npm i lagden-stock-quote
 ```
 
 
@@ -41,6 +41,11 @@ console.log(data)
 
 *Required*  
 Type: `string`
+
+
+## Related
+
+- [lagden-stock-quote-cli](https://github.com/lagden/stock-quote-cli) - CLI version
 
 
 ## License
